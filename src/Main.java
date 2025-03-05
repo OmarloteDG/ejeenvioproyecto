@@ -1,4 +1,4 @@
-import java.util.Random;     //DANIEL LOTE GARCIA
+import java.util.Random;     //DANIEL LOTE add
 import java.util.Scanner;
 
 public class Main {
