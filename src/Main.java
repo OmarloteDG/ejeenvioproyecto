@@ -1,15 +1,39 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Random;     //DANIEL LOTE GARCIA
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner teclado = new Scanner(System.in);
+        Random ale = new Random();
+        int max = 100;
+        int min = 1;
+        int num1, num2, op = 0;
+        String operacion;
+        double resultado = 0;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("CALCULADORA");
+
+        do {
+            num1 = ale.nextInt((max - min + 1)) + min;
+            num2 = ale.nextInt((max - min + 1)) + min;
+            System.out.println("Números generados: " + num1 + " y " + num2);
+            System.out.print(" operaciónes disponibles (+, -, *, /, ^, %): ");
+            operacion = teclado.next();
+
+            switch (operacion) {
+                case "+" -> resultado = num1 + num2;
+                case "-" -> resultado = num1 - num2;
+                case "*" -> resultado = num1 * num2;
+                case "/" -> resultado = (double) num1 / num2;
+                case "^" -> resultado = Math.pow(num1, num2);
+                case "%" -> resultado = num1 % num2;
+            }
+            System.out.println("RESULTADO: " + resultado);
+            System.out.print("¿Desea realizar otra operación? (1: SI, 2: NO): ");
+            op = teclado.nextInt();
+
         }
+        while (op == 1) ;
+        System.out.println("FINALIZO.");
     }
 }
